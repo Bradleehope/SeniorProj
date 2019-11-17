@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<htm lang="en">
+{% block head %}
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'didgUwear/site.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text|Dosis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
+</head>
+<div class="header">
+  <h1 style="font-family: 'Satisfy', cursive; text-align:left; text-size:100px;">Did U Wear?</h1>
+  <h2 style="font-family: 'Dosis', sans-serif; text-align:center;">An Online Closet</h2>
+</div>
+
+<div class="topnav" style="font-size:40;">
+  <a href="closet">Closet</a>
+  <a href="add">Add</a>
+  <a href="#">Style</a>
+  <a href="#" style="float:right">Link</a>
+</div>
+{% endblock head %}
+
+{% block maincontent %}
+<p> This page seems to have no content</p>
+{% endblock maincontent %}
+
+{% block footer %}
+  <h4 style="font-family: 'Satisfy', cursive; text-align:center;">Copyright Bradlee Rothwell </h4>
+{% endblock footer %}
