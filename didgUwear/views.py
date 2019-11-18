@@ -1,14 +1,14 @@
 from datetime import datetime
+from didgUwear.models import Shirt, Pant
 # from django.http import HttpResponse
 from django.shortcuts import render
 
 
-def home(request):
-    return render(request, 'didgUwear/homepage.htmli')
-
-
 def closet(request):
-    return render(request, 'didgUwear/closet.jinja')
+    shirt = Shirt.objects.all()
+    pant = Pant.objects.all()
+    context = {'shirts': shirt, 'pants': pant}
+    return render(request, 'didgUwear/closet.jinja', context)
 
 
 def shirts(request):

@@ -29,5 +29,6 @@ weather TEXT NOT NULL,
 holiday TEXT,
 fit TEXT,
 description_input TEXT,
-image_link URL NOT NULL
+image_link URL NOT NULL,
+date_added DATE
 )

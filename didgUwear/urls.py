@@ -3,7 +3,7 @@ from didgUwear import views
 
 
 urlpatterns = [
-    path("", views.home, name="home"),
+    path("", views.closet, name="home"),
     path("shirts", views.shirts, name="shirts"),
     path("pants", views.pants, name="pants"),
     path("closet", views.closet, name="closet"),

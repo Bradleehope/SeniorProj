@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Shirt(models.Model):
-    nickname = models.CharField(max_length=50)
+    nickname = models.CharField(max_length=50, null=True)
     primary_color = models.CharField(max_length=30)
     style = models.CharField(max_length=30)
     secondary_color = models.CharField(max_length=30, null=True)
@@ -17,7 +17,7 @@ class Shirt(models.Model):
 
 
 class Pant(models.Model):
-    nickname = models.CharField(max_length=50)
+    nickname = models.CharField(max_length=50, null=True)
     primary_color = models.CharField(max_length=30)
     style = models.CharField(max_length=30)
     secondary_color = models.CharField(max_length=30, null=True)
