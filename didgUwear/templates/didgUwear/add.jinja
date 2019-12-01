@@ -3,11 +3,9 @@
 Home
 {% endblock %}
 {% block maincontent %}
-<div class="grid-container">
-  <div class="item1" style="font-family: 'Big Shoulders Text', cursive; text-align:center">Add New Clothing</div>
-  <div class="item2">
-  </div>
-  <div class="item3">
+<div class="row">
+    <div class="container">
+        <div class="col-sm-11">
         <form style="font-family: 'Satisfy', cursive; color: mediumorchid; font-size:30px " action="">
             Outfit Nickname *
             <input type="text" name="nickname"><br>
@@ -86,7 +84,6 @@ Home
             <input type="submit" value="Submit">
         </form>
   </div>
-  <div class="item2">
-  </div>
+    </div>
 </div>
 {% endblock maincontent %}

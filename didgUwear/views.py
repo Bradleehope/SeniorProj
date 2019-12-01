@@ -2,6 +2,8 @@ from datetime import datetime
 from didgUwear.models import Shirt, Pant
 # from django.http import HttpResponse
 from django.shortcuts import render
+from django.views import View
+from django.http import JsonResponse
 
 
 def closet(request):
@@ -23,6 +25,10 @@ def add(request):
     return render(request, 'didgUwear/add.jinja')
 
 
+def style(request):
+    return render(request, 'didgUwear/style.jinja')
+
+
 def hello_there(request, name):
     return render(
         request,
@@ -32,3 +38,10 @@ def hello_there(request, name):
             'date': datetime.now()
         }
     )
+
+class StyleInput(View):
+
+    def get(self, request, **kwargs):
+        shirtStyle = kwargs['styleinput']
+        shirt = Shirt.objects.get(nickname=shirtStyle)
+        return JsonResponse(shirt)

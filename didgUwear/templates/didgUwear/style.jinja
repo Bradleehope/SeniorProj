@@ -1,24 +1,28 @@
 {% extends "didgUwear/base.jinja" %}
+{% block addtohead %}
+  <style>
+    function findStyle(){
+      var shirt_style = $('#shirtStyle').val();
+      $.getJSON("{{ url('styleinput', input='INPUT_PH') }}".replace('INPUT_PH', shirt_style), styleUpdate);
+    }
+
+    function styleUpdates(data){
+      sessionStorage.setItem('current_shirt_style, data)
+      location.reload();
+    }
+  </style>
+{% endblock %}
 {% block title %}
 Home
 {% endblock %}
 {% block maincontent %}
+<div class="row">
+  <div class="container">
+    <div class="col-sm-11">
+      <input type="text" id="shirtStyle">
+      <button class="styleButton" onclick="findStyle() value="Style">Style</button>
+      {{current_shirt_style}}
 
-<div class="grid-container">
-  <div class="item1" style="font-family: 'Big Shoulders Text', cursive; text-align:center">Welcome Bradlee</div>
-  <div class="item2">
-    <a href="closet">All</a><br>
-    <a href="shirts"> Shirts</a><br>
-    <a href="pants"> Pants </a><br>
-    <a href="accessories"> Accessories</a><br>
-  </div>
-  <div class="item3">
-    <h2>All</h2>
-    <div class ="grid-container-items">
-        <div class="item2">Item 1</div>
-        <div class="item3"> Item 2 </div>
-        <div class="item4"> Item 3</div>
-        <div class="item5">Item 4</div>
     </div>
   </div>
 </div>

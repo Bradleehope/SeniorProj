@@ -8,4 +8,6 @@ urlpatterns = [
     path("pants", views.pants, name="pants"),
     path("closet", views.closet, name="closet"),
     path("add", views.add, name="add"),
+    path("style", views.style, name="style"),
+    path("styleinput/<path:input>", views.StyleInput.as_view(), name="styleInput")
 ]

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<htm lang="en">
+<html lang="en">
 {% block head %}
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'didgUwear/site.css' %}"/>
     <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text|Dosis&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <div class="header">
   <h1 style="font-family: 'Satisfy', cursive; text-align:left; text-size:100px;">Did U Wear?</h1>
@@ -15,10 +21,11 @@
 </div>
 
 <div class="topnav" style="font-size:40;">
-  <a href="closet">Closet</a>
-  <a href="add">Add</a>
-  <a href="#">Style</a>
-  <a href="#" style="float:right">Link</a>
+  <a class="navLinks" href="closet">Closet</a>
+  <a class="navLinks" href="add">Add</a>
+  <a class="navLinks" href="style">Style</a>
+  <a class="navLinks" href="calendar">Calendar</a>
+  <a class="navLinks" href="#" style="float:right">About</a>
 </div>
 {% endblock head %}
 

@@ -12,7 +12,7 @@ class Shirt(models.Model):
     holiday = models.CharField(max_length=30, null=True)
     description = models.CharField(max_length=30, null=True)
     brand = models.CharField(max_length=30)
-    date = models.DateField()
+    date_added = models.DateField()
     img_link = models.CharField(max_length=50)
 
 
@@ -27,5 +27,5 @@ class Pant(models.Model):
     holiday = models.CharField(max_length=30, null=True)
     description = models.CharField(max_length=30, null=True)
     brand = models.CharField(max_length=30)
-    date = models.DateField()
+    date_added = models.DateField()
     img_link = models.CharField(max_length=50)

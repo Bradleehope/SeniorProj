@@ -3,81 +3,30 @@
 Home
 {% endblock %}
 {% block maincontent %}
-
-<div class="grid-container">
-  <div class="item1" style="font-family: 'Big Shoulders Text', cursive; text-align:center">Welcome Bradlee</div>
-  <div class="item2">
-    <a href="closet">All</a><br>
-    <a href="shirts"> Shirts</a><br>
-    <a href="pants"> Pants </a><br>
-    <a href="accessories"> Accessories</a><br>
-  </div>
-  <div class="item3">
-    <h2>All</h2>
-    <div class ="grid-container-items">
+<div class="row">
+    <div class="col-sm-12">
+    <h2 class="welcomeBanner"> Welcome Bradlee</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 sideLinks">
+        <a class="sideLinks" href="closet">All</a><br>
+        <a class="sideLinks" href="shirts"> Shirts</a><br>
+        <a class="sideLinks" href="pants"> Pants </a><br>
+        <a class="sideLinks" href="accessories"> Accessories</a><br>
+    </div>
+    <div class ="col-sm-10 closetDisplay">
+      <div class="card-deck">
       {% for shirt in shirts %}
-
-        <div class="item2" style="height:400px; width:300px" >
-           <img src="/static/didgUwear/media/clothes/{{shirt.img_link}}" style="width:280px; height:280px;">
-           <br>
-           <p style="text-align:center;">{{shirt.nickname}}</p>
-        </div>
+          <div class="card" style="width:50%; background-color:white">
+            <img src="/static/didgUwear/media/clothes/{{shirt.img_link}}" style="width:100%; height:100%;">
+            <div class="card-body">
+              <p style="text-align:center;">{{shirt.nickname}}</p>
+            </div>
+          </div>
       {% endfor %}
-
-        <div class="item3"> Item 2 </div>
-        <div class="item4"> Item 3</div>
-        <div class="item5">Item 4</div>
+      </div>
     </div>
-  </div>
 </div>
 
-
-<button id="myBtn">Open Modal</button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Modal Header</h2>
-    </div>
-    <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
-    </div>
-    <div class="modal-footer">
-      <h3>Modal Footer</h3>
-    </div>
-  </div>
-
-</div>
-
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 {% endblock maincontent %}

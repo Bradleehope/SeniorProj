@@ -1,11 +1,8 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   font-family: Arial;
   padding: 10px;
   background-image: url("media/hotel-wallpaper.png");
+  width: 100%;
 }
 
 /* Header/Blog Title */
@@ -15,6 +12,14 @@ body {
   background: white;
   color: mediumorchid;
   font-family: 'Satisfy', cursive;
+}
+
+.card {display:inline-block;}
+
+.welcomeBanner{
+  text-align: center;
+  text-size: 30px;
+  color: black;
 }
 
 h2 {
@@ -29,9 +34,20 @@ p{
   font-size: 20px;
 }
 
-a{
-  font-size: 35px;
+.closetDisplay{
+  background-color: white;
+  opacity: 0.9;
+}
+
+.sideLinks{
+  font-size: 25px;
   color: mediumorchid;
+  font-family: 'Big Shoulders Text', cursive;
+  text-decoration: none;
+}
+
+.navLinks{
+  font-size: 25px;
   font-family: 'Big Shoulders Text', cursive;
   text-decoration: none;
 }
@@ -67,41 +83,6 @@ a:hover{
   color: black;
 }
 
-/* Create two unequal columns that floats next to each other */
-/* Left column */
-.leftcolumn {
-  float: left;
-  width: 75%;
-}
-
-/* Right column */
-.rightcolumn {
-  float: left;
-  width: 25%;
-  background-color: #f1f1f1;
-  padding-left: 20px;
-}
-
-/* Fake image */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
-
-/* Add a card effect for articles */
-.card {
-  padding: 20px;
-  margin-top: 20px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 /* Footer */
 .footer {
   padding: 20px;
@@ -110,57 +91,6 @@ a:hover{
   margin-top: 20px;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {
-    width: 100%;
-    padding: 0;
-  }
-}
-
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .topnav a {
-    float: none;
-    width: 100%;
-  }
-}
-
-.item1 { grid-area: header; }
-.item2 { grid-area: menu; }
-.item3 { grid-area: main; }
-.item4 { grid-area: right; }
-.item5 { grid-area: left; }
-
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    'header header header header header header'
-    'menu main main main main main';
-  grid-gap: 10px;
-  padding: 10px;
-}
-
-.grid-container > div {
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 20px 10px;
-  font-size: 40px;
-}
-
-.grid-container-items {
-  display: grid;
-  grid-template-areas:
-  'menu main right left';
-  grid-gap: 10px;
-  padding: 10px;
-  background-color: gray;
-}
-
-.grid-container-items > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px 10px;
-  font-size: 30px;
-}
 
 input[type=text], select {
   width: 100%;
@@ -185,75 +115,4 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: mediumorchid;
-}
-
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
 }
