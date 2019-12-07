@@ -1,0 +1,32 @@
+{% extends "didgUwear/base.jinja" %}
+{% block title %}
+Home
+{% endblock %}
+{% block maincontent %}
+<div class="row">
+    <div class="col-sm-12">
+    <h2 class="welcomeBanner"> Welcome Bradlee</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 sideLinks">
+        <a class="sideLinks" href="closet">All</a><br>
+        <a class="sideLinks" href="shirts"> Shirts</a><br>
+        <a class="sideLinks" href="pants"> Pants </a><br>
+        <a class="sideLinks" href="accessories"> Accessories</a><br>
+    </div>
+    <div class ="col-sm-10 closetDisplay">
+      <div class="card-deck">
+      {% for shirt in shirts %}
+          <div class="card" style="width:50%; background-color:white">
+            <img src="/static/didgUwear/media/clothes/{{shirt.img_link}}" style="width:100%; height:100%;">
+            <div class="card-body">
+              <p style="text-align:center;">{{shirt.nickname}}</p>
+            </div>
+          </div>
+      {% endfor %}
+      </div>
+    </div>
+</div>
+
+{% endblock maincontent %}

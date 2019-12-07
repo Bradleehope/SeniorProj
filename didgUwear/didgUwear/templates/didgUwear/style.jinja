@@ -1,0 +1,29 @@
+{% extends "didgUwear/base.jinja" %}
+{% block addtohead %}
+  <style>
+    function findStyle(){
+      var shirt_style = $('#shirtStyle').val();
+      $.getJSON("{{ url('styleinput', input='INPUT_PH') }}".replace('INPUT_PH', shirt_style), styleUpdate);
+    }
+
+    function styleUpdates(data){
+      sessionStorage.setItem('current_shirt_style, data)
+      location.reload();
+    }
+  </style>
+{% endblock %}
+{% block title %}
+Home
+{% endblock %}
+{% block maincontent %}
+<div class="row">
+  <div class="container">
+    <div class="col-sm-11">
+      <input type="text" id="shirtStyle">
+      <button class="styleButton" onclick="findStyle() value="Style">Style</button>
+      {{current_shirt_style}}
+
+    </div>
+  </div>
+</div>
+{% endblock maincontent %}
