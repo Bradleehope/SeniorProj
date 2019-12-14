@@ -1,7 +1,16 @@
 {% extends "didgUwear/base.jinja" %}
 {% block title %}
-Home
+Home Closet
 {% endblock %}
+{% block addtohead %}
+<script>
+
+  function deleteItem(nickname){
+    alert("here")
+
+  }
+</script>
+{% endblock addtohead%}
 {% block maincontent %}
 <div class="row">
     <div class="col-sm-12">
@@ -10,23 +19,30 @@ Home
 </div>
 <div class="row">
     <div class="col-sm-2 sideLinks">
-        <a class="sideLinks" href="closet">All</a><br>
         <a class="sideLinks" href="shirts"> Shirts</a><br>
         <a class="sideLinks" href="pants"> Pants </a><br>
         <a class="sideLinks" href="accessories"> Accessories</a><br>
     </div>
-    <div class ="col-sm-10 closetDisplay">
-      <div class="card-deck">
+    <div class ="col-sm-9 closetDisplay">
       {% for shirt in shirts %}
-          <div class="card" style="width:50%; background-color:white">
-            <img src="/static/didgUwear/media/clothes/{{shirt.img_link}}" style="width:100%; height:100%;">
-            <div class="card-body">
-              <p style="text-align:center;">{{shirt.nickname}}</p>
+        <ul class="list-unstyled">
+          <li class="media">
+            <img src="/static/didgUwear/media/clothes/{{shirt.img_link}}" style="width:150px; height:150px">
+            <div class="media-body">
+              <h3 class="mt-0 mb-1">{{shirt.nickname}}</h3>
+              {{shirt.primary_color}}
+              {{shirt.holiday}}
+              <a class="btn btn-primary" href="{% url 'deleteItem' nickname=shirt.nickname %}"> delete</a>
             </div>
-          </div>
+          </li>
+        </ul>
+
       {% endfor %}
-      </div>
     </div>
+    <div class="col-sm-1>
+    </div>
+
+
 </div>
 
 {% endblock maincontent %}

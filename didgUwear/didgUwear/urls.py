@@ -10,5 +10,6 @@ urlpatterns = [
     path("add", views.AddClothes.as_view(), name="addClothes"),
     path("style", views.style, name="style"),
     path("styleinput/<path:input>", views.StyleInput.as_view(), name="styleInput"),
-    path("addinputshirt", views.addInputShirt.as_view(), name="addinputshirt")
+    path("addinputshirt", views.addInputShirt.as_view(), name="addinputshirt"),
+    path("deleteitem/<path:nickname>", views.DeleteItem.as_view(), name="deleteItem"),
 ]

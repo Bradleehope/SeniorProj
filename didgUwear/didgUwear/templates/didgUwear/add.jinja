@@ -1,12 +1,12 @@
 {% extends "didgUwear/base.jinja" %}
 {% block title %}
-Home
+Add New Clothes
 {% endblock %}
 {% block maincontent %}
 <div class="row">
     <div class="container">
         <div class="col-sm-11">
-        <form style="font-family: 'Big Shoulders Text', cursive; color: mediumorchid; font-size:30px" name="addNew" action="addinputshirt" method="post">
+        <form style="font-family: 'Big Shoulders Text', cursive; font-size:30px" name="addNew" action="addinputshirt" enctype="multipart/form-data" method="post">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Submit">
