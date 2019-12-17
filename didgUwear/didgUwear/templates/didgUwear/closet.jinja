@@ -3,13 +3,7 @@
 Home Closet
 {% endblock %}
 {% block addtohead %}
-<script>
 
-  function deleteItem(nickname){
-    alert("here")
-
-  }
-</script>
 {% endblock addtohead%}
 {% block maincontent %}
 <div class="row">
@@ -19,27 +13,50 @@ Home Closet
 </div>
 <div class="row">
     <div class="col-sm-2 sideLinks">
+        <a class="sideLinks" href="closet"> All </a><br>
         <a class="sideLinks" href="shirts"> Shirts</a><br>
         <a class="sideLinks" href="pants"> Pants </a><br>
         <a class="sideLinks" href="accessories"> Accessories</a><br>
     </div>
     <div class ="col-sm-9 closetDisplay">
+     <form style="font-family: 'Big Shoulders Text', cursive; font-size:15px" name="addNew" class="form-inline" action="addinputpant" enctype="multipart/form-data" method="post">
+          {% csrf_token %}
+          {{ form }}
+          <input type="submit" value="Apply">
+      </form>
       {% for shirt in shirts %}
         <ul class="list-unstyled">
           <li class="media">
             <img src="/static/didgUwear/media/clothes/{{shirt.img_link}}" style="width:150px; height:150px">
             <div class="media-body">
-              <h3 class="mt-0 mb-1">{{shirt.nickname}}</h3>
-              {{shirt.primary_color}}
-              {{shirt.holiday}}
-              <a class="btn btn-primary" href="{% url 'deleteItem' nickname=shirt.nickname %}"> delete</a>
+              <div style="padding: 5px;">
+                <h3 class="mt-0 mb-1" >{{shirt.nickname}}</h3>
+                {{shirt.primary_color}} {{shirt.secondary_color}} {{shirt.pattern}} shirt <br>
+                Perfect for:{{shirt.weather}} weather <br>
+                <a class="btn primaryBtn" style="color:mediumorchid;"href="{% url 'deleteItem' nickname=shirt.nickname clothing='shirts' %}"> Delete</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      {% endfor %}
+       {% for pant in pants %}
+        <ul class="list-unstyled">
+          <li class="media">
+            <img src="/static/didgUwear/media/clothes/{{pant.img_link}}" style="width:150px; height:150px">
+            <div class="media-body">
+              <div style="padding: 5px;">
+                <h3 class="mt-0 mb-1" >{{pant.nickname}}</h3>
+                {{pant.primary_color}} {{pant.pattern}} pants <br>
+                <a class="btn primaryBtn" style="color:mediumorchid;"href="{% url 'deleteItem' nickname=pant.nickname clothing='pants' %}"> Delete</a>
+              </div>
             </div>
           </li>
         </ul>
 
       {% endfor %}
     </div>
-    <div class="col-sm-1>
+    <div class="col-sm-1">
     </div>
 
 

@@ -3,23 +3,41 @@
 Home
 {% endblock %}
 {% block maincontent %}
-
-<div class="grid-container">
-  <div class="item1" style="font-family: 'Big Shoulders Text', cursive; text-align:center">Welcome Bradlee</div>
-  <div class="item2">
-    <a href={% url 'closet' %}>All</a><br>
-    <a href={% url "shirts" %}> Shirts</a><br>
-    <a href={% url "pants" %}> Pants </a><br>
-    <a href="accessories"> Accessories</a><br>
-  </div>
-  <div class="item3">
-    Shirts
-    <div class ="grid-container-items">
-        <div class="item2">Item 1</div>
-        <div class="item3"> Item 2 </div>
-        <div class="item4"> Item 3</div>
-        <div class="item5">Item 4</div>
+<div class="row">
+    <div class="col-sm-12">
+    <h2 class="welcomeBanner"> Welcome Bradlee</h2>
     </div>
-  </div>
 </div>
+<div class="row">
+    <div class="col-sm-2 sideLinks">
+        <a class="sideLinks" href="closet"> All </a><br>
+        <a class="sideLinks" href="shirts"> Shirts</a><br>
+        <a class="sideLinks" href="pants"> Pants </a><br>
+        <a class="sideLinks" href="accessories"> Accessories</a><br>
+    </div>
+    <div class ="col-sm-9 closetDisplay">
+      {% for shirt in shirts %}
+        <ul class="list-unstyled">
+          <li class="media">
+            <img src="/static/didgUwear/media/clothes/{{shirt.img_link}}" style="width:150px; height:150px">
+            <div class="media-body">
+              <div style="padding: 5px;">
+                <h3 class="mt-0 mb-1" >{{shirt.nickname}}</h3>
+                {{shirt.primary_color}} {{shirt.secondary_color}} {{shirt.pattern}} shirt <br>
+                Perfect for:{{shirt.weather}} weather <br>
+                <a class="btn primaryBtn" style="color:mediumorchid;"href="{% url 'deleteItem' nickname=shirt.nickname, clothing='shirts' %}"> Delete</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      {% endfor %}
+    </div>
+    <div class="col-sm-1">
+    </div>
+
+
+</div>
+
 {% endblock maincontent %}
+

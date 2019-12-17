@@ -5,6 +5,11 @@ body {
   width: 100%;
 }
 
+.closetBtn{
+  color:mediumorchid;
+  text-align:right;
+}
+
 /* Header/Blog Title */
 .header {
   padding: 30px;
@@ -20,6 +25,7 @@ body {
   text-align: center;
   text-size: 30px;
   color: black;
+  font-family: 'Satisfy', cursive;
 }
 
 h2 {
@@ -28,6 +34,14 @@ h2 {
   background: white;
   color: mediumorchid;
   font-family: 'Satisfy', cursive;
+}
+
+
+h3 {
+  font-size: 2px;
+  text-align: left;
+  font-family: 'Big Shoulders Text', cursive;
+  color: gray;
 }
 
 p{

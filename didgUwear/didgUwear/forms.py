@@ -1,12 +1,13 @@
 from django import forms
-from .models import Shirt
+from .models import Shirt, Pant
+
+COLOR_CHOICES = (('none', 'None'), ('blue', 'Blue'), ('brown', 'Brown'), ('black', 'Black'),
+                 ('gray', 'Gray'), ('green', 'Green'), ('purple', 'Purple'),
+                 ('pink', 'Pink'), ('orange', 'Orange'), ('yellow', 'Yellow'),
+                 ('white', 'White'))
 
 
 class ShirtForm(forms.ModelForm):
-    COLOR_CHOICES = (('none', 'None'), ('blue', 'Blue'), ('brown', 'Brown'), ('black', 'Black'),
-                     ('gray', 'Gray'), ('green', 'Green'), ('purple', 'Purple'),
-                     ('pink', 'Pink'), ('orange', 'Orange'), ('yellow', 'Yellow'),
-                     ('white', 'White'))
     STYLE_CHOICES = (('blouse', 'Blouse'), ('tshirt', 'T-Shirt'), ('sweatshirt', 'Sweatshirt'),
                      ('sweater', 'Sweater'), ('other', 'Other'))
     OCCASION_CHOICES = (('formal', 'Formal'), ('fitness', 'Fitness'), ('sunday', 'Sunday Best'),
@@ -34,3 +35,29 @@ class ShirtForm(forms.ModelForm):
     class Meta:
         model = Shirt
         fields = ('nickname', 'img_link')
+
+
+class PantForm(forms.ModelForm):
+    COLOR_CHOICES = (('none', 'None'), ('blue', 'Blue'), ('brown', 'Brown'), ('black', 'Black'),
+                     ('gray', 'Gray'), ('green', 'Green'), ('purple', 'Purple'),
+                     ('pink', 'Pink'), ('orange', 'Orange'), ('yellow', 'Yellow'),
+                     ('white', 'White'))
+    STYLE_CHOICES = (('jeans', 'Jeans'), ('leggings', 'Leggings'), ('sweats', 'Sweats'),
+                     ('athletic pants', 'Athletic Pants'), ('jean shorts', 'Jean Shorts'),
+                     ('basketball shorts', 'Basketball Shorts'), ('athletic shorts', 'Athletic Shorts'))
+
+    nickname = forms.CharField(label='Nickname', max_length=50)
+    img_link = forms.FileField(label='Image Link')
+    primary_color = forms.ChoiceField(label='Primary Color', choices=COLOR_CHOICES)
+    style = forms.ChoiceField(label='Style', choices=STYLE_CHOICES)
+    description = forms.CharField(label='Description', max_length=100, required=False)
+    brand = forms.CharField(label='Brand', max_length=30, required=False)
+
+    class Meta:
+        model = Pant
+        fields = ('nickname', 'img_link')
+
+
+class FilterForm(forms.Form):
+    color = forms.ChoiceField(label='Primary Color', choices=COLOR_CHOICES)
+
