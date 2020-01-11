@@ -3,14 +3,13 @@ import datetime
 from django.shortcuts import render
 from django.views import View
 from django.http import JsonResponse
-from .forms import ShirtForm, PantForm, FilterForm
+from .forms import ShirtForm, PantForm, PredictionForm
 
 
 def closet(request):
     shirt = Shirt.objects.all()
     pant = Pant.objects.all()
-    form = FilterForm
-    context = {'shirts': shirt, 'pants': pant, 'form': form}
+    context = {'shirts': shirt, 'pants': pant}
     return render(request, 'didgUwear/closet.jinja', context)
 
 
@@ -102,3 +101,32 @@ class StyleInput(View):
         shirtStyle = kwargs['styleinput']
         shirt = Shirt.objects.get(nickname=shirtStyle)
         return JsonResponse(shirt)
+
+
+class FindPrediction(View):
+    def get(self, request):
+        form = PredictionForm()
+        return render(request, 'didgUwear/prediction.jinja', {'form': form})
+
+
+class Prediction(View):
+    def post(self, request):
+        form = PredictionForm(request.POST, request.FILES)
+        if request.method == 'POST':
+            # create a form instance and populate it with data from the request:
+            form = PredictionForm(request.POST, request.FILES)
+            # check whether it's valid:
+            if form.is_valid():
+                date = datetime.datetime.now()
+                s = Shirt(nickname=form.cleaned_data['nickname'], primary_color=form.cleaned_data['primary_color'],
+                          style=form.cleaned_data['style'], secondary_color=form.cleaned_data['secondary_color'],
+                          occasion=form.cleaned_data['occasion'], weather=form.cleaned_data['weather'],
+                          holiday=form.cleaned_data['holiday'], description=form.cleaned_data['description'],
+                          brand=form.cleaned_data['brand'], date_added=date, img_link=form.cleaned_data['img_link'])
+                print("inserted ")
+                s.save()
+                return render(request, 'didgUwear/closet.jinja')
+        # if a GET (or any other method) we'll create a blank form
+        else:
+            form = PredictionForm()
+            return render(request, 'didgUwear/prediction.jinja', {'form': form})

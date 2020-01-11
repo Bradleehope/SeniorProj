@@ -5,15 +5,15 @@ COLOR_CHOICES = (('none', 'None'), ('blue', 'Blue'), ('brown', 'Brown'), ('black
                  ('gray', 'Gray'), ('green', 'Green'), ('purple', 'Purple'),
                  ('pink', 'Pink'), ('orange', 'Orange'), ('yellow', 'Yellow'),
                  ('white', 'White'))
+OCCASION_CHOICES = (('formal', 'Formal'), ('fitness', 'Fitness'), ('sunday', 'Sunday Best'),
+                    ('casual', 'Casual'), ('vacation', 'Vacation'), ('other', 'Other'))
+WEATHER_CHOICES = (('cold', 'Cold'), ('freezing', 'Freezing'), ('hot', 'Hot'), ('rain', 'Raining'),
+                   ('warm', 'Warm'))
 
 
 class ShirtForm(forms.ModelForm):
     STYLE_CHOICES = (('blouse', 'Blouse'), ('tshirt', 'T-Shirt'), ('sweatshirt', 'Sweatshirt'),
                      ('sweater', 'Sweater'), ('other', 'Other'))
-    OCCASION_CHOICES = (('formal', 'Formal'), ('fitness', 'Fitness'), ('sunday', 'Sunday Best'),
-                        ('casual', 'Casual'), ('vacation', 'Vacation'), ('other', 'Other'))
-    WEATHER_CHOICES = (('cold', 'Cold'), ('freezing', 'Freezing'), ('hot', 'Hot'), ('rain', 'Raining'),
-                       ('warm', 'Warm'))
     PATTERN_CHOICES = (('none', 'None'), ('striped', 'Striped'), ('polka_dots', 'Polka Dots'),
                        ('plain', 'Plain'), ('knit', 'Knit'), ('plaid', 'Plaid'),
                        ('graphic', 'Graphic T-Shirt'), ('denium', 'Denium'), ('other', 'Other'))
@@ -58,6 +58,7 @@ class PantForm(forms.ModelForm):
         fields = ('nickname', 'img_link')
 
 
-class FilterForm(forms.Form):
+class PredictionForm(forms.Form):
     color = forms.ChoiceField(label='Primary Color', choices=COLOR_CHOICES)
-
+    weather = forms.ChoiceField(label='Weather', choices=WEATHER_CHOICES)
+    occation = forms.ChoiceField(label='Occasion', choices=OCCASION_CHOICES)

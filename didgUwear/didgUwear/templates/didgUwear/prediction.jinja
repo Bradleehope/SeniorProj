@@ -1,0 +1,19 @@
+{% extends "didgUwear/base.jinja" %}
+{% block title %}
+Clothes Suggestions
+{% endblock %}
+{% block maincontent %}
+<div class="row">
+    <div class="container">
+        <div class="col-sm-11">
+        <form style="font-family: 'Big Shoulders Text', cursive; font-size:30px" name="predict" action="predictions" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit">
+        </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock maincontent %}

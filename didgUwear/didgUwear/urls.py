@@ -14,4 +14,6 @@ urlpatterns = [
     path("addinputshirt", views.addInputShirt.as_view(), name="addinputshirt"),
     path("addinputpant", views.addInputPant.as_view(), name="addinputpant"),
     path("deleteitem/<path:nickname>/<path:clothing>", views.DeleteItem.as_view(), name="deleteItem"),
+    path("findprediction", views.FindPrediction.as_view(), name="findPrediction"),
+    path("predictions", views.Prediction.as_view(), name="predictions")
 ]
